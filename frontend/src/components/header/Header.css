@@ -1,5 +1,6 @@
 .header-container{
     display: flex;
+    height: 70px;
     gap: 5%;
     margin: auto;
     padding: 10px;
