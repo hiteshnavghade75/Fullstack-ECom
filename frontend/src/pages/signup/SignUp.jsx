@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import './SignUp.css';
 import useSignUp from "../../hooks/useSignUp";
 import Loader from "../../utils/Loader";
-import Header from "../../components/header/Header";
 
 
 const Signup = () => {
