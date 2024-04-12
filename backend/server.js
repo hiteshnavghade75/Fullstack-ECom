@@ -4,6 +4,7 @@ const cors = require('cors')
 const cookieParser = require('cookie-parser');
 
 const authRoutes = require('./routes/auth.routes');
+const productRoutes = require('./routes/product.routes')
 
 const connectToMongoDB = require('./db/connection');
 
@@ -16,6 +17,7 @@ app.use(cookieParser());
 app.use(cors());
 
 app.use("/api/auth", authRoutes);
+app.use("/api/product", productRoutes);
 
 const PORT = process.env.PORT || 5000; 
 
