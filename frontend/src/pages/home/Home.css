@@ -7,3 +7,10 @@
 .logo-container img{
     max-height: 30px;
 }
+
+.card-holder{
+    display: inline-flex;
+    gap: 20px;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
