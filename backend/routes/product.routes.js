@@ -1,13 +1,15 @@
 const express = require('express');
-const {addProduct, updateProduct, getAllProducts} = require('../controllers/product.controller');
+const {addProduct, updateProduct, getAllProducts, getProductById, deleteProduct} = require('../controllers/product.controller');
 const router = express.Router();
-
-router.use('/images', express.static("backend/uploads"));
 
 router.get('/', getAllProducts)
 
+router.get('/:id', getProductById)
+
 router.post('/add', addProduct);
 
-router.post('/update/:id', updateProduct);
+router.put('/update/:id', updateProduct);
+
+router.delete('/delete/:id', deleteProduct)
 
 module.exports = router ;

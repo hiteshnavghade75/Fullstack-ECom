@@ -12,6 +12,7 @@ const connectToMongoDB = require('./db/connection');
 
 const app = express();
 
+app.use('/images', express.static("backend/uploads"));
 app.use(cors());
 dotenv.config();
 
