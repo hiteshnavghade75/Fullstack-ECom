@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import './SignUp.css';
 import useSignUp from "../../hooks/useSignUp";
 import Loader from "../../utils/Loader";
+import Header from "../../components/header/Header";
 
 
 const Signup = () => {
@@ -42,9 +43,10 @@ const Signup = () => {
 
   return (
     <>
+    <Header/>
     <div className="signup-container">
       <div className="form-container">
-        <div className="profile-container">
+        <div className="profile-img-container">
           <img src={signUpAnime} alt="animation" className="profile-image" />
         </div>
 

@@ -18,3 +18,19 @@
     display: flex;
     gap: 20px;
 }
+
+.add-product-logo{
+    font-size: 40px;
+    color: black;
+}
+
+.cart-counter{
+    position: absolute;
+    padding-left: 8px;
+    width: 25px;
+    height: 25px;
+    background-color: orangered;
+    color: #fff;
+    right: 73px;
+    border-radius: 15px;
+}

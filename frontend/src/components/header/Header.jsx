@@ -5,7 +5,7 @@ import Profile from './Profile'
 import Cart from './Cart'
 import './Header.css'
 import { Link } from 'react-router-dom';
-import { IoIosAddCircleOutline } from "react-icons/io";
+import ProductAdd from './ProductAdd'
 
 const Header = () => {
     return (
@@ -17,12 +17,12 @@ const Header = () => {
                 <SearchBar />
             </div>
             <div className='profile-cart'>
-                <Link to={'product/add'} >
-                    <IoIosAddCircleOutline/>
-                </Link>
-                Add Product
+                <ProductAdd/>
                 <Profile />
                 <Cart />
+                <div className='cart-counter'>
+                    0
+                </div>
             </div>
         </div>
     )

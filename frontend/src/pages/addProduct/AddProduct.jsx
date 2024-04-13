@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Header from '../../components/header/Header';
 
 const AddProduct = () => {
   const [formData, setFormData] = useState({
@@ -37,6 +38,7 @@ const AddProduct = () => {
   };
   return (
     <div>
+      <Header/>
       <div className="signup-container">
         <div className="form-container">
 

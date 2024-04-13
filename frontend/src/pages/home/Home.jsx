@@ -19,9 +19,8 @@ const Home = () => {
   }, [])
 
   return (
-    <div>
+    <div className='homepage-container'>
       <Header />
-      <h2>Your Products</h2>
       <div className='card-holder'>
       {products.map((el) => {
         return <Card

@@ -11,6 +11,11 @@
 .card-holder{
     display: inline-flex;
     gap: 20px;
+    padding: 20px;
     justify-content: space-around;
     flex-wrap: wrap;
+}
+
+.homepage-container{
+    background-color: rgb(228, 241, 245);
 }
