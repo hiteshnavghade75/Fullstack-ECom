@@ -1,7 +1,9 @@
 const express = require('express');
+const path = require('path')
 const dotenv = require('dotenv');
 const cors = require('cors')
 const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser')
 
 const authRoutes = require('./routes/auth.routes');
 const productRoutes = require('./routes/product.routes')
@@ -10,11 +12,11 @@ const connectToMongoDB = require('./db/connection');
 
 const app = express();
 
+app.use(cors());
 dotenv.config();
 
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/product", productRoutes);
