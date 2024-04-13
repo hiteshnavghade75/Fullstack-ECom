@@ -1,0 +1,47 @@
+.viewproduct-container{
+    display: flex;
+    width: 80vw;
+    margin: 3%;
+    gap: 5%;
+    border: 1px solid rgb(190, 186, 186);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.view-product-image-container{
+    height: 40vh;
+}
+
+.view-product-image-container img{
+    max-height: 100%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.price-container{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.rupee-symbol{
+    color: rgb(233, 65, 9);
+}
+
+.view-button-container{
+    display: flex;
+    gap: 10px;
+}
+
+.viewproduct-buttons{
+    width: 150px;
+    height: 40px;
+    border: none;
+    font-weight: bolder;
+    border-radius: 10px;
+    background-color: rgb(249, 62, 62);
+    color: #ffff;
+}
+
+.description-container{
+    margin-top: 10px;
+}
