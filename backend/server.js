@@ -18,6 +18,7 @@ dotenv.config();
 
 app.use(express.json());
 app.use(cookieParser());
+// app.use(bodyParser.json());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/product", productRoutes);

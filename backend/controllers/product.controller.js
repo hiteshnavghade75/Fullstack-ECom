@@ -1,6 +1,7 @@
 const multer = require("multer");
 const Product = require("../models/product.model");
 
+// Multer
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, "backend/uploads/");
@@ -55,6 +56,25 @@ const getAllProducts = async (req, res) => {
   }
 };
 
+const searchProducts = async (req, res) => {
+  try {
+    const keyword = req.query.query;
+
+    const searchFields = ['productName'];
+
+    const query = {
+      $or: searchFields.map(field => ({ [field]: { $regex: new RegExp(keyword, 'i') } }))
+    };
+
+    const products = await Product.find(query);
+
+    res.json({ data: products });
+  } catch (error) {
+    console.error("Error searching products:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+};
+
 const getProductById = async (req, res) => {
   try {
     const productId = req.params.id;
@@ -71,7 +91,6 @@ const getProductById = async (req, res) => {
 
 
 const updateProduct = async (req, res) => {
-  console.log("API HIT");
   try {
     upload(req, res, async function (err) {
       if (err) {
@@ -128,4 +147,4 @@ const deleteProduct = async (req,res) => {
 }
 
 
-module.exports = { addProduct, updateProduct, getAllProducts, getProductById, deleteProduct };
+module.exports = { addProduct, updateProduct, getAllProducts, getProductById, deleteProduct, searchProducts };
