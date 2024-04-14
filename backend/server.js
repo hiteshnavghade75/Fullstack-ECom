@@ -7,6 +7,7 @@ const bodyParser = require('body-parser')
 
 const authRoutes = require('./routes/auth.routes');
 const productRoutes = require('./routes/product.routes')
+const cartProductRoutes = require('./routes/cartProduct.routes')
 
 const connectToMongoDB = require('./db/connection');
 
@@ -18,10 +19,10 @@ dotenv.config();
 
 app.use(express.json());
 app.use(cookieParser());
-// app.use(bodyParser.json());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/product", productRoutes);
+app.use("/api/cart", cartProductRoutes);
 
 const PORT = process.env.PORT || 5000; 
 
