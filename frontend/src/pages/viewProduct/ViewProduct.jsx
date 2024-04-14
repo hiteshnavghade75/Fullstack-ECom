@@ -32,7 +32,7 @@ const ViewProduct = () => {
     }
 
     return (
-        <div>
+        <div className='view-page'>
             <Header />
             <div className='viewproduct-container'>
                 <div className='view-product-image-container'>

@@ -1,14 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import './Card.css'
+import { toast } from 'react-hot-toast';
+import './Card.css';
 
 const Card = ({ productName, productImage, price, description, productId, handleAddToCart }) => {
   const userString = localStorage.getItem('app-user');
   const user = JSON.parse(userString);
 
   const addToCart = () => {
-    console.log(productId)
-    handleAddToCart(productId);
+    if(user){
+      handleAddToCart(productId);
+    }else{
+      toast.error("Login to use this feature")
+    }
   };
 
   return (

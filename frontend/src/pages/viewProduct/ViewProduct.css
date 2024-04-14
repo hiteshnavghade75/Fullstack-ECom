@@ -1,3 +1,8 @@
+.view-page{
+     background-color: rgb(228, 241, 245);
+     height: 100vh;
+}
+
 .viewproduct-container{
     display: flex;
     width: 80vw;
