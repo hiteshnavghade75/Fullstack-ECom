@@ -5,6 +5,9 @@ import Home from './pages/home/Home';
 import Login from './pages/login/Login';
 import SignUp from './pages/signup/SignUp';
 import AddProduct from './pages/addProduct/AddProduct';
+import ViewProduct from './pages/viewProduct/ViewProduct';
+import UpdateProduct from './pages/updateProduct/UpdateProduct';
+import Cart from './pages/cart/Cart';
 
 
 function App() {
@@ -15,7 +18,10 @@ function App() {
           <Route path='/' element={<Home/>} />
           <Route path='/login' element={<Login/>}/>
           <Route path='/signup' element={<SignUp/>}/>
-          <Route path='/add/product' element={<AddProduct/>}/>
+          <Route path='/product/add' element={<AddProduct/>}/>
+          <Route path='/product/view/:id' element={<ViewProduct/>}/>
+          <Route path='/product/update/:id' element={<UpdateProduct/>}/>
+          <Route path='/cart' element={<Cart/>}/>
         </Routes>
       </Router>
       <Toaster/>

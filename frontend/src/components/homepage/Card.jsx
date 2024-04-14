@@ -2,23 +2,25 @@ import React from "react";
 import { Link } from "react-router-dom";
 import './Card.css'
 
-const Card = ({ productName, productImage, price, description, loading, id }) => {
+const Card = ({ productName, productImage, price, description, productId, handleAddToCart }) => {
+  const userString = localStorage.getItem('app-user');
+  const user = JSON.parse(userString);
 
-    console.log(productImage)
-    const imageURL = `http://localhost:5000/${productImage.replace(/\\/g, "/").replace('backend/', '')}`;
-    console.log(imageURL)
+  const addToCart = () => {
+    console.log(productId)
+    handleAddToCart(productId);
+  };
 
   return (
     <div className="card-container">
       {productImage ? (
         <>
           <Link
-            to={`/menu/${id}`}
-            onClick={() => window.scrollTo({ top: "0", behavior: "smooth" })}
+            to={`/product/view/${productId}`}
             className="thumbnail-link"
           >
             <div className="thumbnail">
-              <img src={`https://cimg2.ibsrv.net/ibimg/hgm/1920x1080-1/100/694/land-rover-range-rover_100694630.jpg`} alt="thumbnail" className="thumbnail-img" />
+              <img src={`http://localhost:5000/images/${productImage}`} alt="thumbnail" className="thumbnail-img" />
             </div>
             <h3 className="product-name">{productName}</h3>
             <p className="product-description">{description}</p>
@@ -27,13 +29,13 @@ const Card = ({ productName, productImage, price, description, loading, id }) =>
               {price}
             </p>
           </Link>
-          <button className="add-to-cart-btn">
+          <button className="add-to-cart-btn" onClick={addToCart}>
             Add To Cart
           </button>
         </>
       ) : (
         <div className="loading-placeholder">
-          <p>{loading}</p>
+          <p>Loading...</p>
         </div>
       )}
     </div>
@@ -41,3 +43,4 @@ const Card = ({ productName, productImage, price, description, loading, id }) =>
 };
 
 export default Card;
+

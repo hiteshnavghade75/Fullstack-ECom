@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom';
 import './Profile.css';
 import { HiOutlineUserCircle } from "react-icons/hi2";
 
@@ -12,7 +12,9 @@ const Profile = () => {
   return (
     <div className="profile-container" onClick={handleClick}>
       <HiOutlineUserCircle className='profile-logo' />
-      Login
+      <span className='cart-text'>
+        Login
+      </span>
     </div>
   );
 };
