@@ -2,15 +2,21 @@ import React from "react";
 import { Link } from "react-router-dom";
 import './Card.css'
 
-const Card = ({ productName, productImage, price, description, loading, id }) => {
+const Card = ({ productName, productImage, price, description, productId, handleAddToCart }) => {
+  const userString = localStorage.getItem('app-user');
+  const user = JSON.parse(userString);
+
+  const addToCart = () => {
+    console.log(productId)
+    handleAddToCart(productId);
+  };
 
   return (
     <div className="card-container">
       {productImage ? (
         <>
           <Link
-            to={`/product/view/${id}`}
-            onClick={() => window.scrollTo({ top: "0", behavior: "smooth" })}
+            to={`/product/view/${productId}`}
             className="thumbnail-link"
           >
             <div className="thumbnail">
@@ -23,13 +29,13 @@ const Card = ({ productName, productImage, price, description, loading, id }) =>
               {price}
             </p>
           </Link>
-          <button className="add-to-cart-btn">
+          <button className="add-to-cart-btn" onClick={addToCart}>
             Add To Cart
           </button>
         </>
       ) : (
         <div className="loading-placeholder">
-          <p>{loading}</p>
+          <p>Loading...</p>
         </div>
       )}
     </div>
@@ -37,3 +43,4 @@ const Card = ({ productName, productImage, price, description, loading, id }) =>
 };
 
 export default Card;
+

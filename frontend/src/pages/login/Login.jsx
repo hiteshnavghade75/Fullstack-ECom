@@ -14,7 +14,7 @@ const Login = () => {
     password: '',
   });
 
-  const {loading, login} = useLogin();
+  const { loading, login } = useLogin();
 
   const handleInputChange = (e) => {
     setFormData({
@@ -34,50 +34,50 @@ const Login = () => {
 
   return (
     <>
-    <div className="signup-container">
-      <div className="form-container">
-        <div className="profile-container">
-          <img src={signUpAnime} alt="animation" className="profile-image" />
-        </div>
-
-        <form className="form" onSubmit={handleSubmit}>
-
-          <label htmlFor="username">Username </label>
-          <input
-            type="text"
-            id="username"
-            name="username"
-            className="form-input"
-            value={formData.username}
-            onChange={handleInputChange}
-          />
-
-          <label htmlFor="password">Password</label>
-          <div className="password-container">
-            <input
-              type={showPassword ? "text" : "password"}
-              id="password"
-              name="password"
-              className="form-input"
-              value={formData.password}
-              onChange={handleInputChange}
-            />
-            <span className="password-icon" onClick={handleShowPassword}>
-              {showPassword ? <BiShow /> : <BiHide />}
-            </span>
+      <div className="signup-container">
+        <div className="form-container">
+          <div className="profile-container">
+            <img src={signUpAnime} alt="animation" className="profile-image" />
           </div>
 
-          <button className="signup-btn" type="submit">
-           {!loading ? "Log in" : <Loader/>}
-          </button>
-        </form>
+          <form className="form" onSubmit={handleSubmit}>
 
-        <p className="login-link">
-          Already have an account?
-          <Link to="/signup">sign Up</Link>
-        </p>
+            <label htmlFor="username">Username </label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              className="form-input"
+              value={formData.username}
+              onChange={handleInputChange}
+            />
+
+            <label htmlFor="password">Password</label>
+            <div className="password-container">
+              <input
+                type={showPassword ? "text" : "password"}
+                id="password"
+                name="password"
+                className="form-input"
+                value={formData.password}
+                onChange={handleInputChange}
+              />
+              <span className="password-icon" onClick={handleShowPassword}>
+                {showPassword ? <BiShow /> : <BiHide />}
+              </span>
+            </div>
+
+            <button className="signup-btn" type="submit">
+              {!loading ? "Log in" : <Loader />}
+            </button>
+          </form>
+
+          <p className="login-link">
+            Already have an account?
+            <Link to="/signup">sign Up</Link>
+          </p>
+        </div>
       </div>
-    </div>
     </>
   );
 };

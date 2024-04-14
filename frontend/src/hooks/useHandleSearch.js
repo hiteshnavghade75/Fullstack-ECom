@@ -1,14 +1,13 @@
 import { useState } from "react";
 
-
-
 const useHandleSearch = () => {
+    const [searchResults, setSearchResults] = useState([]);
 
     const search = (searchKeyword) => {
         if (searchKeyword.trim() !== '') {
             const apiUrl = `http://localhost:5000/api/product/v1/search?query=${searchKeyword}`;
 
-            fetch(apiUrl)
+            return fetch(apiUrl)
                 .then(response => {
                     if (!response.ok) {
                         throw new Error('Network response was not ok');
@@ -16,7 +15,9 @@ const useHandleSearch = () => {
                     return response.json();
                 })
                 .then(data => {
-                    console.log(data);
+                    console.log(data)
+                    setSearchResults(data);
+                    return data; 
                 })
                 .catch(error => {
                     console.error('There was a problem with the fetch operation:', error);
@@ -24,8 +25,7 @@ const useHandleSearch = () => {
         }
     };
 
-    return {search}
-
+    return { searchResults, search };
 }
 
-export default useHandleSearch; 
+export default useHandleSearch;

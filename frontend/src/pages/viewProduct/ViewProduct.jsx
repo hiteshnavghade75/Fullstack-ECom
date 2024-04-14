@@ -21,7 +21,7 @@ const ViewProduct = () => {
             .then(data => { setProduct(data) })
     }, [])
 
-    const handleDelete = async () =>  {
+    const handleDelete = async () => {
         await fetch(`http://localhost:5000/api/product/delete/${id}`, {
             method: 'DELETE',
             headers: {
@@ -47,9 +47,9 @@ const ViewProduct = () => {
                     </p>
                     <div className="view-button-container">
                         <Link to={`/product/update/${id}`} >
-                        <button className="viewproduct-buttons">
-                            Update
-                        </button>
+                            <button className="viewproduct-buttons">
+                                Update
+                            </button>
                         </Link>
                         <button className="viewproduct-buttons" onClick={handleDelete}>
                             Delete
@@ -58,8 +58,8 @@ const ViewProduct = () => {
                     <div className='description-container'>
                         <h5>Description : -</h5>
                         <p>
-                        Discover curated items for every occasion. From tech gadgets to trendy fashion,
-                        find quality products at unbeatable prices. Shop now and elevate your lifestyle!
+                            Discover curated items for every occasion. From tech gadgets to trendy fashion,
+                            find quality products at unbeatable prices. Shop now and elevate your lifestyle!
                         </p>
                     </div>
                 </div>

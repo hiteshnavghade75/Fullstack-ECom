@@ -1,25 +1,11 @@
-// import React from 'react'
-// import './SearchBar.css'
-
-// const SearchBar = () => {
-//     return (
-//         <div className='searchbar-container'>
-//             <input type='text' placeholder='Search for products' />
-//             <button className='search-button' type='submit' >Search</button>
-//         </div>
-//     )
-// }
-
-// export default SearchBar
-
-
 import React, { useState } from 'react';
 import './SearchBar.css';
 import useHandleSearch from '../../hooks/useHandleSearch';
 
-const SearchBar = () => {
+const SearchBar = ({onSearch}) => {
 
     const [searchKeyword, setSearchKeyword] = useState('');
+    const [results, setResults] = useState([])
     const {search} = useHandleSearch()
 
     const handleChange = (event) => {
@@ -28,7 +14,12 @@ const SearchBar = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        search(searchKeyword);
+        search(searchKeyword)
+        .then((data )=> {
+            setResults(data)
+        })
+        console.log(results)
+        onSearch(results)
     };
 
     return (

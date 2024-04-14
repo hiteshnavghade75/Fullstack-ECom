@@ -84,13 +84,10 @@ const AddProduct = () => {
                 onChange={handleChange}
               />
             </div>
-
             <button className="signup-btn" type="submit">
               Add Product
             </button>
           </form>
-
-
         </div>
       </div>
     </div>
