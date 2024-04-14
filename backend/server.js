@@ -13,6 +13,8 @@ const connectToMongoDB = require('./db/connection');
 
 const app = express();
 
+const PORT = process.env.PORT || 5000; 
+
 app.use('/images', express.static("backend/uploads"));
 app.use(cors());
 dotenv.config();
@@ -24,11 +26,13 @@ app.use("/api/auth", authRoutes);
 app.use("/api/product", productRoutes);
 app.use("/api/cart", cartProductRoutes);
 
-const PORT = process.env.PORT || 5000; 
+const buildPath = path.resolve(__dirname, '..', 'frontend', 'dist');
 
-app.get('/', (req,res) => {
-    res.send("Welcome...")
-});
+app.use(express.static(buildPath));
+
+app.get("*", (req,res) => {
+    res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"))
+})
 
 app.listen(PORT, () => {
     connectToMongoDB()
