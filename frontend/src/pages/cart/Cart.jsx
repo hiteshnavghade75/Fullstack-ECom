@@ -11,7 +11,8 @@ const Cart = () => {
   const user = JSON.parse(userString);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/cart/products', {
+    if(user){
+      fetch('http://localhost:5000/api/cart/products', {
       method: 'GET',
       headers: {
         Authorization: user.token,
@@ -20,6 +21,7 @@ const Cart = () => {
     })
       .then(res => res.json())
       .then(data => { setProducts(data) })
+    }
   }, [])
 
   let total_price = 0
