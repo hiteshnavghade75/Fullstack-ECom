@@ -32,7 +32,7 @@ const Cart = () => {
   }
 
   return (
-    <>
+    <div className='cart-page'>
       <Header />
       {
         products.length ?
@@ -69,7 +69,7 @@ const Cart = () => {
           </div>
       }
 
-    </>
+    </div>
   );
 }
 
