@@ -5,7 +5,7 @@ const useHandleSearch = () => {
 
     const search = (searchKeyword) => {
         if (searchKeyword.trim() !== '') {
-            const apiUrl = `http://localhost:5000/api/product/v1/search?query=${searchKeyword}`;
+            const apiUrl = `https://fullstack-ecom.onrender.com/api/product/v1/search?query=${searchKeyword}`;
 
             return fetch(apiUrl)
                 .then(response => {

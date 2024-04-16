@@ -11,7 +11,7 @@ const CartProduct = ({ele}) => {
   return (
     <div className="cart-product">
       <div className="product-image-container">
-        <img src={`http://localhost:5000/images/${ele.productImage}`} className="product-image" alt="Product" />
+        <img src={`https://fullstack-ecom.onrender.com/images/${ele.productImage}`} className="product-image" alt="Product" />
       </div>
       <div className="product-details">
         <div className="product-name-container">

@@ -24,7 +24,7 @@ const Card = ({ productName, productImage, price, description, productId, handle
             className="thumbnail-link"
           >
             <div className="thumbnail">
-              <img src={`http://localhost:5000/images/${productImage}`} alt="thumbnail" className="thumbnail-img" />
+              <img src={`https://fullstack-ecom.onrender.com/images/${productImage}`} alt="thumbnail" className="thumbnail-img" />
             </div>
             <h3 className="product-name">{productName}</h3>
             <p className="product-description">{description}</p>

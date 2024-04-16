@@ -11,7 +11,7 @@ const ViewProduct = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/api/product/${id}`, {
+        fetch(`https://fullstack-ecom.onrender.com/api/product/${id}`, {
             method: 'GET',
             headers: {
                 "Content-Type": "application/json"
@@ -22,7 +22,7 @@ const ViewProduct = () => {
     }, [])
 
     const handleDelete = async () => {
-        await fetch(`http://localhost:5000/api/product/delete/${id}`, {
+        await fetch(`https://fullstack-ecom.onrender.com/api/product/delete/${id}`, {
             method: 'DELETE',
             headers: {
                 "Content-Type": "application/json"
@@ -36,7 +36,7 @@ const ViewProduct = () => {
             <Header />
             <div className='viewproduct-container'>
                 <div className='view-product-image-container'>
-                    <img src={product.productImage && `http://localhost:5000/images/${product.productImage}`} alt='thumbnail' />
+                    <img src={product.productImage && `https://fullstack-ecom.onrender.com/${product.productImage}`} alt='thumbnail' />
                 </div>
                 <div className='product-info'>
                     <h1>{product.productName}</h1>

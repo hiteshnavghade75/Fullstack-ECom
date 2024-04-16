@@ -15,7 +15,7 @@ const UpdateProduct = () => {
     });
 
     useEffect(() => {
-        fetch(`http://localhost:5000/api/product/${id}`)
+        fetch(`https://fullstack-ecom.onrender.com/api/product/${id}`)
             .then((response) => response.json())
             .then((data) => setProduct(data))
             .catch((error) => console.log(error));
@@ -54,7 +54,7 @@ const UpdateProduct = () => {
         }
 
 
-        fetch(`http://localhost:5000/api/product/update/${id}`, {
+        fetch(`https://fullstack-ecom.onrender.com/api/product/update/${id}`, {
             method: "PUT",
             body: updatedProduct,
         })

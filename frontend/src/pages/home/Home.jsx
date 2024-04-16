@@ -10,7 +10,7 @@ const Home = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/product", {
+    fetch("https://fullstack-ecom.onrender.com/api/product", {
       method: 'GET',
       headers: {
         "Content-Type": "application/json"
@@ -28,7 +28,7 @@ const Home = () => {
     console.log(productId);
     try {
       if(user){
-        await fetch('http://localhost:5000/api/cart', {
+        await fetch('https://fullstack-ecom.onrender.com/api/cart', {
           method: 'POST',
           headers: {
             Authorization: user.token,
