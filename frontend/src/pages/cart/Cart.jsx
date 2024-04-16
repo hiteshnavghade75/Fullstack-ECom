@@ -12,7 +12,7 @@ const Cart = () => {
 
   useEffect(() => {
     if(user){
-      fetch('http://localhost:5000/api/cart/products', {
+      fetch('https://fullstack-ecom.onrender.com/api/cart/products', {
       method: 'GET',
       headers: {
         Authorization: user.token,

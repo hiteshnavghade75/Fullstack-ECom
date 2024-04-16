@@ -27,7 +27,7 @@ const AddProduct = () => {
     formDataToSend.append('description', formData.description);
 
     try {
-      const response = await fetch('http://localhost:5000/api/product/add', {
+      const response = await fetch('https://fullstack-ecom.onrender.com/api/product/add', {
         method: 'POST',
         body: formDataToSend
       });
