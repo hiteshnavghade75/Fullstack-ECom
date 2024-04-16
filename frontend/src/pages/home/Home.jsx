@@ -27,16 +27,21 @@ const Home = () => {
   const handleAddToCart = async (productId) => {
     console.log(productId);
     try {
-      await fetch('http://localhost:5000/api/cart', {
-        method: 'POST',
-        headers: {
-          Authorization: user.token,
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ productId })
-      });
+      if(user){
+        await fetch('http://localhost:5000/api/cart', {
+          method: 'POST',
+          headers: {
+            Authorization: user.token,
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ productId })
+        });
+  
+        navigate('/cart');
+      }else{
+        toast.error("Login to use this feature")
+      }
 
-      navigate('/cart');
     } catch (error) {
       console.error('Error:', error);
     }

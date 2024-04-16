@@ -21,16 +21,12 @@ const addToCartProduct = async (req, res) => {
     }
 };
 
-
-
 const getProductsByUser = async (req, res) => {
   try {
-    const userId = req.userId; // Assuming you pass userId as a route parameter
+    const userId = req.userId;
 
-    // Find CartProducts for the specified user and populate the referenced products
     const cartProducts = await CartProduct.find({ userId }).populate('productId');
 
-    // Extract the products from the populated fields
     const products = cartProducts.map(cartProduct => cartProduct.productId);
 
     res.status(200).json(products);
@@ -40,13 +36,10 @@ const getProductsByUser = async (req, res) => {
   }
 };
 
-
-
 const deleteFromCart = async (req, res) => {
   try {
     const productId = req.params.productId;
 
-    // Convert productId to MongoDB ObjectId
     const validId = mongoose.Types.ObjectId.isValid(productId);
     if (!validId) {
       return res.status(400).json({ error: 'Invalid product ID' });
